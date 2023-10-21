@@ -1,5 +1,5 @@
 # Ask to user their name
-name = input("What's your name? ")
+# name = input("What's your name? ")
 
 # * Say hello to user, versão simplória
 # print ("Hello, ", end="")
@@ -29,11 +29,19 @@ name = input("What's your name? ")
 
 # * Também, podemos fazer tudo junto: 
 
-name = name.strip().title()
-print(f"Hello, {name}")
+# name = name.strip().title()
+# print(f"Hello, {name}")
 
 
 # * Podemos inclusive, juntar tudo em um: 
 
-name2 = input("Digite seu nome: ").strip().title()
-print(f"Hello, {name2}")
+
+def hello(to="world"):
+    print("Hello,", to)
+
+def main():
+    hello()
+    name2 = input("Digite seu nome: ").strip().title()
+    hello(name2)
+    
+main()
