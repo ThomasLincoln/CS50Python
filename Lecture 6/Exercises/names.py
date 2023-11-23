@@ -19,11 +19,11 @@
 # names = []
 
 # with open("name.txt") as file:
-#for line in file:
-#names.append(line.rstrip())
+#     for line in file:
+#         names.append(line.rstrip())
 
 # for name in sorted(names)
-#print(f"Hello,", name)
+#     print(f"Hello,", name)
 
 # Forma para organizar e printar os dados de forma otimizada
 with open("names.txt", "r") as file:
