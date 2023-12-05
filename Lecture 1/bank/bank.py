@@ -1,4 +1,4 @@
-response = input()
+response = input("Greeting: ").strip()
 
 search_for_Hello = response.find("Hello")
 search_for_H = response.find("H")
