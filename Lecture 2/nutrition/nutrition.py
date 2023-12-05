@@ -1,43 +1,43 @@
-fruta = input("Item: ")
+fruta = input("Item: ").lower()
 
 match fruta:
-    case "Apple":
+    case "apple":
         print("Calories: 130")
-    case "Avocado":
+    case "avocado":
         print("Calories: 50")
-    case "Banana":
+    case "banana":
         print("Calories: 110")
-    case "Cantaloupe":
+    case "cantaloupe":
         print("Calories: 50")
-    case "Grapefruit":
+    case "grapefruit":
         print("Calories: 60")
-    case "Grapes":
+    case "grapes":
         print("Calories: 90")
-    case "Honeydew Melon":
+    case "honeydew melon":
         print("Calories: 50")
-    case "Kiwifruit":
+    case "kiwifruit":
         print("Calories: 90")
-    case "Lemon":
+    case "lemon":
         print("Calories: 15")
-    case "Lime":
+    case "lime":
         print("Calories: 20")
-    case "Nectarine":
+    case "nectarine":
         print("Calories: 60")
-    case "Orange":
+    case "orange":
         print("Calories: 80")
-    case "Peach":
+    case "peach":
         print("Calories: 60")
-    case "Pear":
+    case "pear":
         print("Calories: 100")
-    case "Pineapple":
+    case "pineapple":
         print("Calories: 50")
-    case "Plums":
+    case "plums":
         print("Calories: 70")   
-    case "Strawberries":
+    case "strawberries":
         print("Calories: 50")   
-    case "Sweet Cherries":
+    case "sweet cherries":
         print("Calories: 100")   
-    case "Tangerine":
+    case "tangerine":
         print("Calories: 50")   
-    case "Watermelon":
+    case "watermelon":
         print("Calories: 80")   

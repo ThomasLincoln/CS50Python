@@ -7,44 +7,45 @@ def main():
 
 
 def is_valid(s):
+    # print(verify_size(s))
     if verify_size(s) == False:
         return False
+    # print(two_letters(s))
     if two_letters(s) == False:
         return False
+    # print(only_letter(s))
     if only_letter(s) == False:
         return False
+    # print(number_in_middle(s))
     if number_in_middle(s) == True: 
         return False
+    # print(first_number_is_zero(s))
     if first_number_is_zero(s) == True: 
         return False
     return True
 
 def first_number_is_zero(s):
-    for letra in s:
-        if letra.isdecimal():
-            if letra == "0":
-                return True
-            else:
-                return False
-        
+    for char in s:
+        if char.isdigit():
+            return char == "0"
+    return False
+
 
 
 def number_in_middle(s): 
     tamanho = len(s)
 
-    if tamanho % 2 == 0:
-        localizacao = int(tamanho/2 - 1)
-        if s[localizacao].isdecimal() and s[localizacao - 1].isdecimal():
+    if tamanho % 2 == 0:  # Se o tamanho for par
+        meio = tamanho // 2
+        if s[meio - 1].isdigit() and s[meio].isdigit():
             return True
-    else:
-        if tamanho == 5:
-            localizacao = round(tamanho/2)
-        elif tamanho == 3: 
-            localizacao = round(tamanho/2) - 1
-        if s[localizacao].isdecimal():
+    else:  # Se o tamanho for ímpar
+        meio = tamanho // 2
+        if s[meio].isdigit():
             return True
-    
+
     return False
+
 
 def only_letter(s):
     return s.isalnum()
