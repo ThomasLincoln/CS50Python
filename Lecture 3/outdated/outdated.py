@@ -15,28 +15,32 @@ meses = [
 
 flag = True
 while flag == True:
-    data = input("Date: ")
-    if (data.find("/") != -1):
+    data = input("Date: ").strip()
+
+    if "/" in data:
         date_parts = data.split("/")
-        if(int(date_parts[1]) < 10) and (int(date_parts[0]) < 10):
-            print(f"{date_parts[2]}-0{date_parts[0]}-0{date_parts[1]}")
-        elif(int(date_parts[0]) < 10):
-            print(f"{date_parts[2]}-0{date_parts[0]}-{date_parts[1]}")
-        elif(int(date_parts[1]) < 10):
-            print(f"{date_parts[2]}-{date_parts[0]}-0{date_parts[1]}")
-        flag = False  
-    elif (data.find(" ")):
+        year = date_parts[2]
+        month = date_parts[0].zfill(2)
+        day = date_parts[1].zfill(2)
+        if month.isnumeric():
+            if 0<=int(month)<=12 and 1<=int(day)<=31:
+                print(f"{year}-{month}-{day}")
+                flag = False
+
+    elif " " in data:
         date_parts = data.split(" ")
-        date_parts[1] = int(date_parts[1][:-1])
-        for i in range(len(meses)):
-            if meses[i] == date_parts[0]:
-                if(i < 10) and (int(date_parts[1]) < 10):
-                    print(f"{date_parts[2]}-0{i+1}-0{date_parts[1]}")
-                    break
-                elif(i < 10):
-                    print(f"{date_parts[2]}-0{i+1}-{date_parts[1]}")
-                    break
-                elif(int(date_parts[1]) < 10):
-                    print(f"{date_parts[2]}-{i+1}-0{date_parts[1]}")
-                    break
-        flag = False
+        year = date_parts[2]
+        month_name = date_parts[0]
+        day = date_parts[1][:-1].zfill(2)
+        if day.isnumeric():
+            if 1<=int(day)<=31 and data.find(",") != -1:
+                # print(day, month_name, year)
+                # print(meses.index(month_name) + 1) 
+            
+                try:
+                    month = meses.index(month_name) + 1
+                    month = str(month).zfill(2)
+                    print(f"{year}-{month}-{day}")
+                    flag = False
+                except ValueError:
+                    pass

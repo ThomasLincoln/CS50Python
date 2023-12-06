@@ -1,38 +1,38 @@
 cardapio = [
     {
-        "nome": "Baja Taco",
+        "nome": "baja taco",
         "preco": 4.25,
     },
     {
-        "nome": "Burrito",
+        "nome": "burrito",
         "preco": 7.50,
     },
     {
-        "nome": "Bowl",
+        "nome": "bowl",
         "preco": 8.50,
     },
     {
-        "nome": "Nachos",
+        "nome": "nachos",
         "preco": 11.00,
     },
     {
-        "nome": "Quesadilla",
+        "nome": "quesadilla",
         "preco": 8.50,
     },
     {
-        "nome": "Super Burrito",
+        "nome": "super burrito",
         "preco": 8.50,
     },
     {
-        "nome": "Super Quesadilla",
+        "nome": "super quesadilla",
         "preco": 9.50,
     },
     {
-        "nome": "Taco",
+        "nome": "taco",
         "preco":  3.00,
     },
     {
-        "nome": "Tortilla Salad",
+        "nome": "tortilla salad",
         "preco": 8.00,
     },
 ]
@@ -41,7 +41,7 @@ a = True
 somatorio = 0
 while a == True:
     try:    
-        itemInput = input("Item: ")
+        itemInput = input("Item: ").lower()
         for item in cardapio:
             if itemInput == item["nome"]:
                 somatorio = somatorio + item["preco"]

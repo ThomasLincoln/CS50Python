@@ -3,19 +3,25 @@ def main():
     while a == True:
         entrada = input("Fraction: ")
         try:
-            x = int(entrada[0])  
-            tamanho = len(entrada) - 1
-            y = int(entrada[tamanho])  
-            
-            
-            if x < y:
-                a = False
-            else:
-                pass
+            numerador, denominador = entrada.split("/")
+            x = int(numerador)
+            y = int(denominador)
             
             resultado = x/y
+            
+            if x <= y and y != 0:
+                a = False
+            else: 
+                pass
+            
         except (ValueError, ZeroDivisionError):
             pass
+    
     porcentagem = resultado * 100
-    print(f"{porcentagem:.0f}%")
+    if porcentagem <= 1:
+        print("E")
+    elif porcentagem >= 99:
+        print("F")
+    else: 
+        print(f"{porcentagem:.0f}%")
 main()
