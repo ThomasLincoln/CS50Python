@@ -7,15 +7,15 @@ def main():
 
 
 def is_valid(s):
-    if verify_size(s) == False:
+    if not verify_size(s):
        return False
-    if two_letters(s) == False:
+    if not two_letters(s):
         return False
-    if only_letter(s) == False:
+    if not only_letter(s):
         return False
-    if number_in_middle(s) == True: 
+    if number_in_middle(s):
         return False
-    if first_number_is_zero(s) == True: 
+    if first_number_is_zero(s):
         return False
     return True
 
@@ -29,22 +29,19 @@ def first_number_is_zero(s):
         
 
 
-def number_in_middle(s): 
-    tamanho = len(s)
+def number_in_middle(s):
+    found_number = False
 
-    if tamanho % 2 == 0:
-        localizacao = int(tamanho/2 - 1)
-        if s[localizacao].isdecimal() and s[localizacao - 1].isdecimal():
-            return True
-    else:
-        if tamanho == 5:
-            localizacao = round(tamanho/2)
-        elif tamanho == 3: 
-            localizacao = round(tamanho/2) - 1
-        if s[localizacao].isdecimal():
-            return True
-    
+    for char in s:
+        if found_number:
+            if char.isalpha():
+                return True
+        elif char.isdigit():
+            found_number = True
+
     return False
+
+
 
 def only_letter(s):
     return s.isalnum()
@@ -56,7 +53,9 @@ def verify_size(s):
         return False
     
 def two_letters(s):
-    return s[0].isnumeric() == False and s[1].isnumeric() == False
+    if s[0].isalpha() == False or s[1].isalpha() == False:
+        return False
+    return True
 
 if __name__ == "__main__":
     main()

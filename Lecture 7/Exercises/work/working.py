@@ -57,6 +57,11 @@ def convert(s):
     if horaFim< 10:
         horaFim = f"0{horaFim}"
     
+    if periodoComeco == "AM" and horaComeco == 12:
+        horaComeco = "00"
+    if periodoFim == "PM" and horaFim == 24:
+        horaFim = 12
+    
     return f"{horaComeco}:{minutoComeco} to {horaFim}:{minutoFim}"
         
 # 9 AM to 5 PM

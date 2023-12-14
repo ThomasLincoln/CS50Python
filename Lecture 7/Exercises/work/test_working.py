@@ -17,6 +17,8 @@ class TestConvertFunction(unittest.TestCase):
         with self.assertRaises(ValueError):
             convert("10AM to 3PM")  # Formato inválido
         # Adicione mais casos de teste para formatos inválidos
+        with self.assertRaises(ValueError):
+            convert("99:99 AM to 99:99 PM")
 
 if __name__ == '__main__':
     unittest.main()
