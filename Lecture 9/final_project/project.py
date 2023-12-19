@@ -5,7 +5,7 @@ import sys
 def main():
 
     args = get_arg()
-    text = get_text(args)
+    text = get_text_from_user(args)
     os.system('clear')
     response = "0"
     while response != "-5":
@@ -34,6 +34,8 @@ def main():
                 frequency = word_frequency(text, word_input)
                 for word, freq in frequency.items():
                     print(f"{word}: {freq}")
+            case "7":
+                show_text(text)
             case "-1":
                 sys.exit("Goodbye")
             case _:
@@ -48,8 +50,12 @@ def print_options():
     print("4 - Number of Lines")
     print("5 - Word Frequencies")
     print("6 - Frequency of a Specific Word")
+    print("7 - Show Text")
     
     print("-1 - Exit")
+
+def show_text(text):
+    print(text)
 
 
 def word_frequency(text, input_word):
@@ -86,10 +92,10 @@ def get_text_from_user(args):
 
 def get_arg():
     """
-        Verifica qual opção o usuário quer
+       Verify the user decision
     """
     parser = argparse.ArgumentParser(
-        description="Um programa para analisar um texto")
+        description="A program to analyse a Text")
     parser.add_argument("--paste", default=0, help="Use a .txt")
     return parser.parse_args()
 
