@@ -1,9 +1,10 @@
 class Jar:
     def __init__(self, capacity=12):
-        if(capacity < 0):
+        if(capacity > 0):
+            self._capacity = capacity
+            self._quantity = 0
+        else:
             raise ValueError("Capacity needs to be a positive integer")
-        self._capacity = capacity
-        self._quantity = 0
         
 
     def __str__(self):
@@ -11,18 +12,17 @@ class Jar:
         return cookies
 
     def deposit(self, n):
-        tentativa = self._quantity + n
-        if(tentativa > capacity):
+        if n+self._quantity <= self.capacity:
+            self._quantity += n
+        else:
             raise ValueError(f"You can't add {n} cookies")
-        self._quantity = tentativa
         
 
     def withdraw(self, n):
-        if self._quantity < 0:
-            raise ValueError("You don't have cookies")
-        self._quantity = self._quantity - n
-        if self._quantity < 0:
-            self._quantity = 0
+        if n <= self._quantity:
+            self._quantity -= n
+        else:        
+            raise ValueError("You don't have cookies")        
 
     @property
     def capacity(self):
@@ -31,3 +31,4 @@ class Jar:
     @property
     def size(self):
         return self._quantity
+
